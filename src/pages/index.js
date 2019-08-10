@@ -4,11 +4,12 @@ import { graphql } from 'gatsby';
 
 // components
 import { Heading, Section, Columns, Level, Button } from 'react-bulma-components';
-import Header from '../components/Header';
-import Post from '../components/Post';
+import Header from '../components/header';
+import Post from '../components/post';
+import SEO from '../components/seo';
 
 // styles
-import '../index.css';
+// import '../index.css';
 
 export default function Layout({ data }) {
   const { allMarkdownRemark } = data;
@@ -16,8 +17,8 @@ export default function Layout({ data }) {
 
   return (
     <>
+      <SEO />
       <Header />
-
       <Section>
         <Columns>
           <Columns.Column>
@@ -52,7 +53,7 @@ export default function Layout({ data }) {
 
 Layout.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({ edges: PropTypes.object }).isRequired
+    allMarkdownRemark: PropTypes.shape({ edges: PropTypes.array }).isRequired
   }).isRequired
 };
 

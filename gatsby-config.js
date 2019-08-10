@@ -7,7 +7,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Test web',
-    description: 'This is my website.'
+    titleTemplate: '%s · The web',
+    description: `Warmeta's personal web.`,
+    url: 'https://www.warmeta.com',
+    image: 'https://secure.gravatar.com/avatar/56ec1452bd2d591ee755926b61b6df28',
+    twitterUsername: '@JAGarcia_7'
   },
   plugins: [
     `gatsby-transformer-remark`,
