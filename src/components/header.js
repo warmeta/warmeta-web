@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hero, Heading, Navbar } from 'react-bulma-components';
-import useSiteMetadata from '../hooks/use-site-metadata';
+import useSiteMetadata from '../query-hooks/use-site-metadata';
 
 const Header = () => {
   const { title } = useSiteMetadata();

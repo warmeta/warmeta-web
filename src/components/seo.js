@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import useSEO from '../hooks/use-seo';
+import useSEO from '../query-hooks/use-seo';
 
 export default function SEO({ title, description, image, pathname, article }) {
   const {
