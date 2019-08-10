@@ -1,75 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
 
 // components
-import { Heading, Section, Columns, Level, Button } from 'react-bulma-components';
-import Header from '../components/header';
-import Post from '../components/post';
-import SEO from '../components/seo';
+import { Heading, Columns, Level, Button } from 'react-bulma-components';
+import Layout from '../components/Layout';
+import ListingPosts from '../components/Listing/Posts';
 
-// styles
-// import '../index.css';
-
-export default function Layout({ data }) {
-  const { allMarkdownRemark } = data;
-  const { edges: posts } = allMarkdownRemark;
-
+export default function Index() {
   return (
-    <>
-      <SEO />
-      <Header />
-      <Section>
-        <Columns>
-          <Columns.Column>
-            <Level>
-              <Level.Side align="left">
-                <Level.Item>
-                  <Heading>Test Heading</Heading>
-                </Level.Item>
-              </Level.Side>
-              <Level.Side align="right">
-                <Level.Item>
-                  <Button>Test button</Button>
-                </Level.Item>
-              </Level.Side>
-            </Level>
-
-            <Columns>
-              {posts.map(post => {
-                return (
-                  <Columns.Column key={post.node.frontmatter.path}>
-                    <Post {...post.node.frontmatter} />
-                  </Columns.Column>
-                );
-              })}
-            </Columns>
-          </Columns.Column>
-        </Columns>
-      </Section>
-    </>
+    <Layout>
+      <Columns>
+        <Columns.Column>
+          <Level>
+            <Level.Side align="left">
+              <Level.Item>
+                <Heading>Test Heading</Heading>
+              </Level.Item>
+            </Level.Side>
+            <Level.Side align="right">
+              <Level.Item>
+                <Button>Test button</Button>
+              </Level.Item>
+            </Level.Side>
+          </Level>
+          <ListingPosts />
+        </Columns.Column>
+      </Columns>
+    </Layout>
   );
 }
-
-Layout.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({ edges: PropTypes.array }).isRequired
-  }).isRequired
-};
-
-export const pageQuery = graphql`
-  query Posts {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            path
-            excerpt
-          }
-        }
-      }
-    }
-  }
-`;

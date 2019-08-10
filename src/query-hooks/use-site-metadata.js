@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import get from 'lodash/get';
 
-const useSEO = () => {
+const useSiteMetadata = () => {
   const data = useStaticQuery(
     graphql`
       query SiteMetadata {
@@ -21,4 +21,4 @@ const useSEO = () => {
   return get(data, 'site.siteMetadata');
 };
 
-export default useSEO;
+export default useSiteMetadata;
