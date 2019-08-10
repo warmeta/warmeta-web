@@ -1,14 +1,18 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import get from 'lodash/get';
 
-const useSiteMetadata = () => {
+const useSEO = () => {
   const data = useStaticQuery(
     graphql`
-      query SiteMetaData {
+      query SiteMetadata {
         site {
           siteMetadata {
             title
+            titleTemplate
             description
+            url
+            image
+            twitterUsername
           }
         }
       }
@@ -17,4 +21,4 @@ const useSiteMetadata = () => {
   return get(data, 'site.siteMetadata');
 };
 
-export default useSiteMetadata;
+export default useSEO;
