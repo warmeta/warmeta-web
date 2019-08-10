@@ -22,6 +22,9 @@ module.exports = {
         name: `pages`,
         path: `./src/pages`
       }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`
     }
   ]
 };

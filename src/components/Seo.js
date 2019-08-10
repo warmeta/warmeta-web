@@ -22,10 +22,6 @@ export default function SEO({ title, description, image, pathname, article }) {
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
-      <link
-        rel="stylesheet"
-        href="https://cdn.rawgit.com/jenil/bulmaswatch/gh-pages/lux/bulmaswatch.min.css"
-      />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}

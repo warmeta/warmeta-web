@@ -5,6 +5,9 @@ import { Heading, Columns, Level, Button } from 'react-bulma-components';
 import Layout from '../components/Layout';
 import ListingPosts from '../components/Listing/Posts';
 
+// styles
+import '../../node_modules/bulmaswatch/lux/bulmaswatch.min.css';
+
 export default function Index() {
   return (
     <Layout>
