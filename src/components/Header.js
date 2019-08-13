@@ -1,5 +1,6 @@
 import React from 'react';
-import { Hero, Heading, Navbar } from 'react-bulma-components';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Hero, Heading, Navbar, Container, Level, Icon } from 'react-bulma-components';
 import useSiteMetadata from '../query-hooks/use-site-metadata';
 
 const Header = () => {
@@ -7,27 +8,45 @@ const Header = () => {
 
   return (
     <Hero color="primary">
-      <Heading>
-        <Navbar>
-          <Navbar.Brand>
-            <Navbar.Item renderAs="a" href="#">
-              <img
-                src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552&format=original"
-                alt="logo"
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            </Navbar.Item>
-          </Navbar.Brand>
-          <Navbar.Menu>
-            <Navbar.Container>
-              <Navbar.Item href="#">{title}</Navbar.Item>
-            </Navbar.Container>
-            <Navbar.Container position="end">
-              <Navbar.Item href="#">At the end</Navbar.Item>
-            </Navbar.Container>
-          </Navbar.Menu>
-        </Navbar>
-      </Heading>
+      <Container>
+        <Heading>
+          <Navbar>
+            <Navbar.Brand style={{ height: 'auto', padding: '7px' }}>
+              <Level>
+                <Level.Item>
+                  <img src="logo1.png" alt="logo" style={{ maxHeight: '3rem' }} />
+                </Level.Item>
+              </Level>
+            </Navbar.Brand>
+            <Navbar.Menu>
+              <Navbar.Container>
+                <Navbar.Item href="#" className="is-size-5">
+                  About
+                </Navbar.Item>
+                <Navbar.Item href="#" className="is-size-5">
+                  Blog
+                </Navbar.Item>
+              </Navbar.Container>
+              <Navbar.Container position="end">
+                <Navbar.Item>
+                  <Level>
+                    <Level.Item>
+                      <FaLinkedin />
+                    </Level.Item>
+                  </Level>
+                </Navbar.Item>
+                <Navbar.Item>
+                  <Level>
+                    <Level.Item>
+                      <FaGithub />
+                    </Level.Item>
+                  </Level>
+                </Navbar.Item>
+              </Navbar.Container>
+            </Navbar.Menu>
+          </Navbar>
+        </Heading>
+      </Container>
     </Hero>
   );
 };
