@@ -1,11 +1,12 @@
 import React from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { Hero, Heading, Navbar, Container, Level, Icon } from 'react-bulma-components';
+// components
+import { Hero, Heading, Navbar, Container, Level } from 'react-bulma-components';
+// queries
 import useSiteMetadata from '../query-hooks/use-site-metadata';
 
 const Header = () => {
-  const { title } = useSiteMetadata();
-
+  const { linkedinUrl, githubUrl } = useSiteMetadata();
   return (
     <Hero color="primary">
       <Container>
@@ -14,7 +15,7 @@ const Header = () => {
             <Navbar.Brand style={{ height: 'auto', padding: '7px' }}>
               <Level>
                 <Level.Item>
-                  <img src="logo1.png" alt="logo" style={{ maxHeight: '3rem' }} />
+                  <img src="logo-w.png" alt="logo" style={{ maxHeight: '3rem' }} />
                 </Level.Item>
               </Level>
             </Navbar.Brand>
@@ -28,14 +29,14 @@ const Header = () => {
                 </Navbar.Item>
               </Navbar.Container>
               <Navbar.Container position="end">
-                <Navbar.Item>
+                <Navbar.Item href={linkedinUrl} target="_blank">
                   <Level>
                     <Level.Item>
                       <FaLinkedin />
                     </Level.Item>
                   </Level>
                 </Navbar.Item>
-                <Navbar.Item>
+                <Navbar.Item href={githubUrl} target="_blank">
                   <Level>
                     <Level.Item>
                       <FaGithub />

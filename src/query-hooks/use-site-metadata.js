@@ -13,6 +13,8 @@ const useSiteMetadata = () => {
             url
             image
             twitterUsername
+            githubUrl
+            linkedinUrl
           }
         }
       }

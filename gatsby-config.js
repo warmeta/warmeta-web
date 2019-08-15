@@ -6,12 +6,14 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Test web',
-    titleTemplate: '%s · The web',
+    title: 'My blog',
+    titleTemplate: '%s · Warmeta',
     description: `Warmeta's personal web.`,
-    url: 'https://www.warmeta.com',
+    url: 'https://www.warmeta.netlify.com',
     image: 'https://secure.gravatar.com/avatar/56ec1452bd2d591ee755926b61b6df28',
-    twitterUsername: '@JAGarcia_7'
+    twitterUsername: '@JAGarcia_7',
+    githubUrl: 'https://github.com/warmeta',
+    linkedinUrl: 'https://www.linkedin.com/in/jose-garc%C3%ADa-ar%C3%A9valo-0b783a156/'
   },
   plugins: [
     `gatsby-transformer-remark`,

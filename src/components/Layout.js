@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import { Section } from 'react-bulma-components';
-import Header from './Header';
-import SEO from './Seo';
+import { Header, Seo as SEO } from './index';
 
 export default function Layout({ children }) {
   return (
