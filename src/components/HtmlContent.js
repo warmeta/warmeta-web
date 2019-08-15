@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DOMPurify from 'dompurify';
+import sanitizeHtml from 'sanitize-html';
 import { Content } from 'react-bulma-components';
 
 const Post = ({ html }) => {
-  return <Content dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }} />;
+  return <Content dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />;
 };
 
 Post.propTypes = {
