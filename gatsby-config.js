@@ -6,9 +6,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'My blog',
+    title: 'My website',
     titleTemplate: '%s · Warmeta',
-    description: `Warmeta's personal web.`,
+    description: `Warmeta personal web.`,
     url: 'https://www.warmeta.netlify.com',
     image: 'https://secure.gravatar.com/avatar/56ec1452bd2d591ee755926b61b6df28',
     twitterUsername: '@JAGarcia_7',
@@ -22,7 +22,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `./src/pages`
+        path: `${__dirname}/src/pages`,
+        ignore: [`**/.*`] // ignore files starting with a dot
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+        ignore: [`**/.*`] // ignore files starting with a dot
       }
     },
     {

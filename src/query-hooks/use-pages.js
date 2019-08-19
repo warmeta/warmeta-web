@@ -1,11 +1,14 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import get from 'lodash/get';
 
-const usePosts = () => {
+const usePages = () => {
   const data = useStaticQuery(
     graphql`
-      query Posts {
-        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
+      query Pages {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/pages/" } }
+          sort: { order: ASC, fields: frontmatter___title }
+        ) {
           edges {
             node {
               frontmatter {
@@ -23,4 +26,4 @@ const usePosts = () => {
   return get(data, 'allMarkdownRemark.edges');
 };
 
-export default usePosts;
+export default usePages;
