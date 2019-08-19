@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(`
         query loadPagesQuery {
-          allMarkdownRemark {
+          allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
             edges {
               node {
                 frontmatter {
@@ -41,6 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
                 pathSlug: node.frontmatter.path
               }
             });
+
             resolve();
           });
         })

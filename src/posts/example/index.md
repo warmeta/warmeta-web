@@ -1,5 +1,5 @@
 ---
-path: '/posts/post-example'
+path: '/blog/example'
 date: '2019-08-18'
 title: 'My First Post'
 tags: ['post', 'test']

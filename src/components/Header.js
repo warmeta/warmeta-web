@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+
 // components
 import { Hero, Heading, Navbar, Container, Level } from 'react-bulma-components';
+
+import logo from '../../static/logo-w.png';
 // queries
 import useSiteMetadata from '../query-hooks/use-site-metadata';
 import usePages from '../query-hooks/use-pages';
@@ -18,7 +21,7 @@ const Header = () => {
             <Navbar.Brand style={{ height: 'auto', padding: '7px' }} renderAs={Link} to="/">
               <Level>
                 <Level.Item>
-                  <img src="../logo-w.png" alt="logo" style={{ maxHeight: '3rem' }} />
+                  <img src={logo} alt="logo" style={{ maxHeight: '3rem' }} />
                 </Level.Item>
               </Level>
             </Navbar.Brand>
@@ -27,9 +30,10 @@ const Header = () => {
                 {pages.map(page => {
                   return (
                     <Navbar.Item
+                      key={page.node.frontmatter.path}
+                      to={page.node.frontmatter.path}
                       className="is-size-5"
                       renderAs={Link}
-                      to={page.node.frontmatter.path}
                     >
                       {page.node.frontmatter.title}
                     </Navbar.Item>

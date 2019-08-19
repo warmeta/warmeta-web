@@ -1,11 +1,11 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
 // TODO: refactor in template for pages
-const useBlogPage = () => {
+const useAboutPage = () => {
   const data = useStaticQuery(
     graphql`
-      query BlogPage {
-        markdownRemark(frontmatter: { path: { eq: "/blog" } }) {
+      query AboutPage {
+        markdownRemark(frontmatter: { path: { eq: "/about" } }) {
           html
           frontmatter {
             title
@@ -20,4 +20,4 @@ const useBlogPage = () => {
   return data;
 };
 
-export default useBlogPage;
+export default useAboutPage;
