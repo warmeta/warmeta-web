@@ -6,16 +6,21 @@ import { Section } from 'react-bulma-components';
 import Header from './Header';
 import Seo from './Seo';
 
-export default function Layout({ children }) {
+export default function Layout({ children, fullWidth }) {
   return (
     <>
       <Seo />
       <Header />
-      <Section>{children}</Section>
+      {fullWidth ? children : <Section>{children}</Section>}
     </>
   );
 }
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  fullWidth: PropTypes.bool
+};
+
+Layout.defaultProps = {
+  fullWidth: false
 };
