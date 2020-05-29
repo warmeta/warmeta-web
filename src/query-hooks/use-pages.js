@@ -5,7 +5,7 @@ const usePages = () => {
   const data = useStaticQuery(
     graphql`
       query Pages {
-        allMarkdownRemark(
+        allMdx(
           filter: { fileAbsolutePath: { regex: "/pages/" } }
           sort: { order: ASC, fields: frontmatter___title }
         ) {
@@ -23,7 +23,7 @@ const usePages = () => {
       }
     `
   );
-  return get(data, 'allMarkdownRemark.edges');
+  return get(data, 'allMdx.edges');
 };
 
 export default usePages;

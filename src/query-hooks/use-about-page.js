@@ -5,8 +5,8 @@ const useAboutPage = () => {
   const data = useStaticQuery(
     graphql`
       query AboutPage {
-        markdownRemark(frontmatter: { path: { eq: "/about" } }) {
-          html
+        mdx(frontmatter: { path: { eq: "/about" } }) {
+          body
           frontmatter {
             title
             path

@@ -5,7 +5,7 @@ const usePosts = () => {
   const data = useStaticQuery(
     graphql`
       query Posts {
-        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
+        allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
           edges {
             node {
               frontmatter {
@@ -20,7 +20,7 @@ const usePosts = () => {
       }
     `
   );
-  return get(data, 'allMarkdownRemark.edges');
+  return get(data, 'allMdx.edges');
 };
 
 export default usePosts;

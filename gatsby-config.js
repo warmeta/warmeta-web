@@ -16,8 +16,18 @@ module.exports = {
     linkedinUrl: 'https://www.linkedin.com/in/jose-garc%C3%ADa-ar%C3%A9valo-0b783a156/'
   },
   plugins: [
-    `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-feed-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          posts: require.resolve('./src/templates/PostTemplate.js'),
+          default: require.resolve('./src/templates/PageTemplate.js')
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

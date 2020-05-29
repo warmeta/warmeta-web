@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 // components
 import { Container, Heading, Columns, Level, Button } from 'react-bulma-components';
-import { Layout, HtmlContent } from '../components';
+import { Layout } from '../components';
 
 const PostTemplate = ({ data }) => {
-  const { markdownRemark } = data;
-  const { html, frontmatter } = markdownRemark;
+  const { mdx } = data;
+  const { body, frontmatter } = mdx;
 
   return (
     <Layout>
@@ -27,7 +28,7 @@ const PostTemplate = ({ data }) => {
                 </Level.Item>
               </Level.Side>
             </Level>
-            <HtmlContent html={html} />
+            <MDXRenderer>{body}</MDXRenderer>
           </Columns.Column>
         </Columns>
       </Container>
@@ -36,13 +37,13 @@ const PostTemplate = ({ data }) => {
 };
 
 PostTemplate.propTypes = {
-  data: PropTypes.shape({ markdownRemark: PropTypes.object, html: PropTypes.object }).isRequired
+  data: PropTypes.shape({ mdx: PropTypes.object, body: PropTypes.object }).isRequired
 };
 
 export const query = graphql`
   query($pathSlug: String!) {
-    markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
-      html
+    mdx(frontmatter: { path: { eq: $pathSlug } }) {
+      body
       frontmatter {
         title
       }

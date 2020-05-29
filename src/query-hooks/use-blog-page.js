@@ -5,8 +5,8 @@ const useBlogPage = () => {
   const data = useStaticQuery(
     graphql`
       query BlogPage {
-        markdownRemark(frontmatter: { path: { eq: "/blog" } }) {
-          html
+        mdx(frontmatter: { path: { eq: "/blog" } }) {
+          body
           frontmatter {
             title
             path

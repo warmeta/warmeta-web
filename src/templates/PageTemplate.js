@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 // components
 import { Container, Heading, Columns, Level } from 'react-bulma-components';
-import { Layout, HtmlContent } from '../components';
+import { Layout } from '../components';
 
-const PageTemplate = ({ data, children }) => {
-  const { markdownRemark } = data;
-  const { html, frontmatter } = markdownRemark;
+const PageTemplate = ({ pageContext, children }) => {
+  const { frontmatter } = pageContext;
+  const { title } = frontmatter;
 
   return (
     <Layout>
@@ -17,11 +17,10 @@ const PageTemplate = ({ data, children }) => {
             <Level>
               <Level.Side align="left">
                 <Level.Item>
-                  <Heading>{frontmatter.title}</Heading>
+                  <Heading>{title}</Heading>
                 </Level.Item>
               </Level.Side>
             </Level>
-            <HtmlContent html={html} />
             {children}
           </Columns.Column>
         </Columns>
@@ -31,7 +30,8 @@ const PageTemplate = ({ data, children }) => {
 };
 
 PageTemplate.propTypes = {
-  data: PropTypes.shape({ markdownRemark: PropTypes.object, html: PropTypes.object }).isRequired,
+  pageContext: PropTypes.shape({ frontmatter: PropTypes.shape({ title: PropTypes.string }) })
+    .isRequired,
   children: PropTypes.element
 };
 

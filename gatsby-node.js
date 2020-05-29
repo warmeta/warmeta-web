@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(`
         query loadPagesQuery {
-          allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
+          allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
             edges {
               node {
                 frontmatter {
@@ -24,8 +24,8 @@ exports.createPages = ({ graphql, actions }) => {
           if (result.errors) {
             throw result.errors;
           }
-
-          result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          // process mdx files
+          result.data.allMdx.edges.forEach(({ node }) => {
             createPage({
               path: node.frontmatter.path,
               component: PostTemplate,
@@ -41,8 +41,6 @@ exports.createPages = ({ graphql, actions }) => {
                 pathSlug: node.frontmatter.path
               }
             });
-
-            resolve();
           });
         })
         .catch(error => {
