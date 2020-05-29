@@ -8,7 +8,7 @@ export default function SEO({ title, description, image, pathname, article }) {
     title: defaultTitle,
     titleTemplate,
     description: defaultDescription,
-    url: siteUrl,
+    url,
     image: defaultImage,
     twitterUsername
   } = useSiteMetadata();
@@ -16,8 +16,8 @@ export default function SEO({ title, description, image, pathname, article }) {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname || '/'}`
+    image: `${url}${image || defaultImage}`,
+    url: `${url}${pathname || '/'}`
   };
 
   return (
