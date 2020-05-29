@@ -50,3 +50,16 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'Mdx') {
+    const parent = getNode(node.parent);
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `/${parent.sourceInstanceName}/${parent.name}`
+    });
+  }
+};
