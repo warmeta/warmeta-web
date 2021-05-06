@@ -38,7 +38,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.10.0",
-    "sanitize-html": "^1.24.0",
+    "sanitize-html": "^2.3.2",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
